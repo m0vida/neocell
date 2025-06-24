@@ -4,93 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alex Kapellas | Cloud & DevOps Engineer</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f4f4;
-      color: #333;
+    :root {
+      --primary: #0078d4;
+      --background: #f4f4f4;
+      --text: #333;
+      --font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
     header {
-      background: #0078d4;
+      background: var(--primary);
       color: white;
       padding: 3rem 1rem;
       text-align: center;
     }
+
     header h1 {
-      margin: 0;
       font-size: 2.5rem;
     }
+
     header p {
       margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
-    main {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
-    h2 {
-      color: #0078d4;
-      margin-bottom: 0.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-    a {
-      color: #0078d4;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Alex Kapellas</h1>
-    <p>Cloud & DevOps Engineer | Kubernetes | Azure | Automation</p>
-  </header>
-
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>
-        I’m a Cloud Solutions Architect specializing in Kubernetes, Azure DevOps, and infrastructure automation. 
-        I enjoy building secure, scalable systems with a passion for cloud-native technologies.
-      </p>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Cats vs Dogs Voting App</strong> – Deployed with Helm & AKS</li>
-        <li><strong>Uptime Kuma</strong> – Monitoring stack with Kubernetes and Ingress</li>
-        <li><strong>FortiGate Automation</strong> – Automate VPN user provisioning using Ansible</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <p>
-        📧 <a href="mailto:alex@example.com">alex@example.com</a><br>
-        💼 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a><br>
-        💻 <a href="https://github.com/alexkapellas" target="_blank">GitHub</a>
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 Alex Kapellas. Built with ❤️ using Azure Static Web Apps and Terraform.
-  </footer>
-
-</body>
-</html>
