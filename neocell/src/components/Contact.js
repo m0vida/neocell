@@ -96,7 +96,7 @@ function Contact() {
         </div>
         <div style={{ margin: '1rem 0' }}>
           <ReCAPTCHA
-            sitekey="6LciSHQrAAAAABoDWSMCkygDvkF47ylqcpX-_rrQ"  // replace with your reCAPTCHA site key
+            sitekey="6LduT3QrAAAAAEgPHI0X2eMxZ7v0VB06L1iN55F-"  // replace with your reCAPTCHA site key
             onChange={handleCaptchaChange}
           />
         </div>
