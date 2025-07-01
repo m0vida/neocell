@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ function Contact() {
     email: '',
     message: '',
   });
+  const [captchaToken, setCaptchaToken] = useState(null);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -15,8 +17,17 @@ function Contact() {
     }));
   };
 
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!captchaToken) {
+      alert('Please complete the reCAPTCHA to prove you are human.');
+      return;
+    }
 
     emailjs.send(
       'service_6em59ul',     // replace with your service ID
@@ -32,6 +43,7 @@ function Contact() {
       console.log('Email successfully sent!', result.text);
       alert('Your message was sent successfully!');
       setFormData({ name: '', email: '', message: '' });
+      setCaptchaToken(null);
     })
     .catch((error) => {
       console.error('Failed to send email:', error);
@@ -82,6 +94,12 @@ function Contact() {
             />
           </label>
         </div>
+        <div style={{ margin: '1rem 0' }}>
+          <ReCAPTCHA
+            sitekey="6LciSHQrAAAAABoDWSMCkygDvkF47ylqcpX-_rrQ"  // replace with your reCAPTCHA site key
+            onChange={handleCaptchaChange}
+          />
+        </div>
         <button type="submit" style={{
           background: 'var(--primary)',
           color: 'white',
@@ -97,4 +115,3 @@ function Contact() {
 }
 
 export default Contact;
- 
