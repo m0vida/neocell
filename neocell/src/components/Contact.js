@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -16,19 +17,31 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message!');
-    setFormData({ name: '', email: '', message: '' });
+
+    emailjs.send(
+      'service_6em59ul',     // replace with your service ID
+      'template_cq2aacd',    // replace with your template ID
+      {
+        from_name: formData.name,
+        reply_to: formData.email,
+        message: formData.message,
+      },
+      'j6223EoBAhy1akOSM'      // replace with your public key (user ID)
+    )
+    .then((result) => {
+      console.log('Email successfully sent!', result.text);
+      alert('Your message was sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch((error) => {
+      console.error('Failed to send email:', error);
+      alert('Something went wrong. Please try again later.');
+    });
   };
 
   return (
     <section>
       <h2>Contact</h2>
-      <p>
-        📧 <a href="mailto:akapellas@outlook.com">akapellas@outlook.com</a><br />
-        💼 <a href="https://linkedin.com/in/alexkapellas" target="_blank" rel="noopener noreferrer">LinkedIn</a><br />
-        💻 <a href="https://github.com/m0vida" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </p>
       <form onSubmit={handleSubmit} style={{ marginTop: '1rem' }}>
         <div style={{ marginBottom: '0.5rem' }}>
           <label>
@@ -84,3 +97,4 @@ function Contact() {
 }
 
 export default Contact;
+ 
