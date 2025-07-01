@@ -18,6 +18,6 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"             # Where your index.html or app root is
-          api_location: ""              # Leave blank if no API
-          output_location: ""           # Leave blank if not a build output
+          app_location: "neocell"               # Where your index.html or app root is
+          api_location: ""                      # Leave blank if no API
+          output_location: "build"              # Leave blank if not a build output
